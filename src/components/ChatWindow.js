@@ -23,13 +23,14 @@ function ChatWindow() {
       scrollToBottom();
   }, [messages]);
 
-  const handleSend = async (input) => {
+  const handleSend = async () => {
     if (input.trim() !== "") {
       // Set user message
       setMessages(prevMessages => [...prevMessages, { role: "user", content: input }]);
       setInput("");
 
       // Call API & set assistant message
+      // TODO: Call API to get assistant message
       const newMessage = await getAIMessage(input);
       setMessages(prevMessages => [...prevMessages, newMessage]);
     }
@@ -54,7 +55,7 @@ function ChatWindow() {
               placeholder="Type a message..."
               onKeyPress={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
-                  handleSend(input);
+                  handleSend();
                   e.preventDefault();
                 }
               }}
