@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://instalily-case-study-backend-edd9ce3c3724.herokuapp.com/'
+const API_BASE_URL = 'localhost:5000/'
 
 export const getAIMessage = async (userQuery) => {
   try {
